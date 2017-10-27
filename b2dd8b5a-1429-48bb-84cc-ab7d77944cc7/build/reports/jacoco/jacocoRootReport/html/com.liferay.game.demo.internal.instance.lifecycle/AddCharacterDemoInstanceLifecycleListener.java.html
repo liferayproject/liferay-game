@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddCharacterDemoInstanceLifecycleListener.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.demo.internal.instance.lifecycle</a> &gt; <span class="el_source">AddCharacterDemoInstanceLifecycleListener.java</span></div><h1>AddCharacterDemoInstanceLifecycleListener.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.demo.internal.instance.lifecycle;
+
+import com.liferay.game.search.CharacterIndexer;
+import com.liferay.game.service.CharacterLocalService;
+import com.liferay.portal.instance.lifecycle.BasePortalInstanceLifecycleListener;
+import com.liferay.portal.instance.lifecycle.PortalInstanceLifecycleListener;
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
+import com.liferay.portal.kernel.service.GroupLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.UserLocalService;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.util.PropsValues;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Eduardo Garcia
+ */
+@Component(immediate = true, service = PortalInstanceLifecycleListener.class)
+<span class="fc" id="L43">public class AddCharacterDemoInstanceLifecycleListener</span>
+	extends BasePortalInstanceLifecycleListener {
+
+	@Override
+	public void portalInstanceRegistered(Company company) throws Exception {
+<span class="fc" id="L48">		Group defaultGroup = _groupLocalService.getGroup(</span>
+<span class="fc" id="L49">			company.getCompanyId(),</span>
+			PropsValues.VIRTUAL_HOSTS_DEFAULT_SITE_NAME);
+
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">		if (_characterLocalService.getCharactersCount() &gt; 0) {</span>
+<span class="nc" id="L53">			return;</span>
+		}
+
+<span class="fc" id="L56">		long defaultUserId = _userLocalService.getDefaultUserId(</span>
+<span class="fc" id="L57">			company.getCompanyId());</span>
+
+<span class="fc" id="L59">		ServiceContext serviceContext = new ServiceContext();</span>
+
+<span class="fc" id="L61">		String topic = GetterUtil.getString(System.getenv(&quot;DEMO_TOPIC&quot;), &quot;got&quot;);</span>
+
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (!_TOPICS.containsKey(topic)) {</span>
+<span class="nc" id="L64">			return;</span>
+		}
+
+<span class="fc" id="L67">		Map&lt;String, String&gt; resources = _TOPICS.get(topic);</span>
+
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		for (Map.Entry&lt;String, String&gt; entry : resources.entrySet()) {</span>
+<span class="fc" id="L70">			String url = _IMAGE_RELATIVE_URL + topic + &quot;/&quot; + entry.getValue();</span>
+
+<span class="fc" id="L72">			_characterLocalService.addCharacter(</span>
+<span class="fc" id="L73">				defaultUserId, defaultGroup.getGroupId(), entry.getKey(), url,</span>
+				serviceContext);
+<span class="fc" id="L75">		}</span>
+<span class="fc" id="L76">	}</span>
+
+	@Reference(target = ModuleServiceLifecycle.PORTAL_INITIALIZED, unbind = &quot;-&quot;)
+	protected void setModuleServiceLifecycle(
+		ModuleServiceLifecycle moduleServiceLifecycle) {
+<span class="fc" id="L81">	}</span>
+
+<span class="fc" id="L83">	private static final String[] _GOT = {</span>
+		&quot;Daenerys Targaryen&quot;, &quot;daenerystargaryen.png&quot;, &quot;Jon Snow&quot;,
+		&quot;jonsnow.png&quot;, &quot;Tyrion Lannister&quot;, &quot;tyrionlannister.png&quot;,
+		&quot;Ramsay Bolton&quot;, &quot;ramsaybolton.png&quot;, &quot;Hodor&quot;, &quot;hodor.png&quot;,
+		&quot;Oberyn Martell&quot;, &quot;oberynmartell.png&quot;
+	};
+
+<span class="fc" id="L90">	private static final String[] _HEROES = {</span>
+		&quot;Batman&quot;, &quot;batman_xl.png&quot;, &quot;Captain America&quot;, &quot;captainamerica_xl.png&quot;,
+		&quot;Flash&quot;, &quot;flash_xl.png&quot;, &quot;Green Lantern&quot;, &quot;greenlantern_xl.png&quot;,
+		&quot;IronMan&quot;, &quot;ironman_xl.png&quot;, &quot;Robin&quot;, &quot;robin_xl.png&quot;, &quot;SpiderMan&quot;,
+		&quot;spiderman_xl.png&quot;, &quot;Superman&quot;, &quot;superman_xl.png&quot;, &quot;Wolverine&quot;,
+		&quot;wolverine_xl.png&quot;, &quot;WonderWoman&quot;, &quot;wonderwoman_xl.png&quot;
+	};
+
+	private static final String _IMAGE_RELATIVE_URL = &quot;/o/game-web/images/&quot;;
+
+	private static final Map&lt;String, Map&lt;String, String&gt;&gt; _TOPICS;
+
+	static {
+<span class="fc" id="L103">		Map&lt;String, Map&lt;String, String&gt;&gt; topics = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L105">		topics.put(&quot;got&quot;, MapUtil.fromArray(_GOT));</span>
+<span class="fc" id="L106">		topics.put(&quot;heroes&quot;, MapUtil.fromArray(_HEROES));</span>
+
+<span class="fc" id="L108">		_TOPICS = Collections.unmodifiableMap(topics);</span>
+<span class="fc" id="L109">	}</span>
+
+	@Reference
+	private CharacterIndexer _characterIndexer;
+
+	@Reference
+	private CharacterLocalService _characterLocalService;
+
+	@Reference
+	private GroupLocalService _groupLocalService;
+
+	@Reference
+	private Portal _portal;
+
+	@Reference
+	private UserLocalService _userLocalService;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

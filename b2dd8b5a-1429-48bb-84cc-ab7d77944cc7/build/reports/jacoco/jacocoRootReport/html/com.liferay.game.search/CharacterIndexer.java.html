@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterIndexer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.search</a> &gt; <span class="el_source">CharacterIndexer.java</span></div><h1>CharacterIndexer.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.search;
+
+import com.liferay.game.model.Character;
+import com.liferay.game.service.CharacterLocalService;
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.BaseIndexer;
+import com.liferay.portal.kernel.search.BooleanQuery;
+import com.liferay.portal.kernel.search.Document;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.search.Hits;
+import com.liferay.portal.kernel.search.IndexWriterHelper;
+import com.liferay.portal.kernel.search.Indexer;
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.search.SearchException;
+import com.liferay.portal.kernel.search.Summary;
+import com.liferay.portal.kernel.search.filter.BooleanFilter;
+import com.liferay.portal.kernel.util.GetterUtil;
+
+import java.util.Locale;
+
+import javax.portlet.PortletRequest;
+import javax.portlet.PortletResponse;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Cristina González
+ */
+@Component(immediate = true, service = {Indexer.class, CharacterIndexer.class})
+<span class="fc" id="L49">public class CharacterIndexer extends BaseIndexer&lt;Character&gt; {</span>
+
+<span class="fc" id="L51">	public static final String CLASS_NAME = Character.class.getName();</span>
+
+	@Override
+	public String getClassName() {
+<span class="fc" id="L55">		return CLASS_NAME;</span>
+	}
+
+	@Override
+	public void postProcessSearchQuery(
+			BooleanQuery searchQuery, BooleanFilter fullQueryBooleanFilter,
+			SearchContext searchContext)
+		throws Exception {
+
+<span class="fc" id="L64">		addSearchTerm(searchQuery, searchContext, Field.STATUS, false);</span>
+<span class="fc" id="L65">	}</span>
+
+	@Override
+	protected void doDelete(Character character) throws Exception {
+<span class="fc" id="L69">		deleteDocument(character.getCompanyId(), character.getCharacterId());</span>
+<span class="fc" id="L70">	}</span>
+
+	@Override
+	protected Document doGetDocument(Character character) throws Exception {
+<span class="fc" id="L74">		Document document = getBaseModelDocument(CLASS_NAME, character);</span>
+
+<span class="fc" id="L76">		document.addText(Field.NAME, character.getName());</span>
+<span class="fc" id="L77">		document.addText(Field.TITLE, character.getName());</span>
+<span class="fc" id="L78">		document.addText(Field.STATUS, character.getStatus());</span>
+
+<span class="fc" id="L80">		return document;</span>
+	}
+
+	@Override
+	protected Summary doGetSummary(
+			Document document, Locale locale, String snippet,
+			PortletRequest portletRequest, PortletResponse portletResponse)
+		throws Exception {
+
+<span class="fc" id="L89">		Summary summary = createSummary(document, Field.TITLE, Field.NAME);</span>
+
+<span class="fc" id="L91">		return summary;</span>
+	}
+
+	@Override
+	protected void doReindex(Character character) throws Exception {
+<span class="fc" id="L96">		Document document = getDocument(character);</span>
+
+<span class="fc" id="L98">		_indexWriterHelper.updateDocument(</span>
+<span class="fc" id="L99">			getSearchEngineId(), character.getCompanyId(), document,</span>
+<span class="fc" id="L100">			isCommitImmediately());</span>
+<span class="fc" id="L101">	}</span>
+
+	@Override
+	protected void doReindex(String className, long classPK) throws Exception {
+<span class="nc" id="L105">		Character character = _characterLocalService.getCharacter(classPK);</span>
+
+<span class="nc" id="L107">		doReindex(character);</span>
+<span class="nc" id="L108">	}</span>
+
+	@Override
+	protected void doReindex(String[] ids) throws Exception {
+<span class="nc" id="L112">		long companyId = GetterUtil.getLong(ids[0]);</span>
+
+<span class="nc" id="L114">		reindexCharacters(companyId);</span>
+<span class="nc" id="L115">	}</span>
+
+	protected Hits doSearch(SearchContext searchContext)
+		throws SearchException {
+
+		try {
+<span class="fc" id="L121">			this.reindexCharacters(searchContext.getCompanyId());</span>
+		}
+<span class="nc" id="L123">		catch (PortalException pe) {</span>
+<span class="nc" id="L124">			pe.printStackTrace();</span>
+<span class="fc" id="L125">		}</span>
+
+<span class="fc" id="L127">		return super.doSearch(searchContext);</span>
+	}
+
+	protected void reindexCharacters(final long companyId)
+		throws PortalException {
+
+<span class="fc" id="L133">		final IndexableActionableDynamicQuery indexableActionableDynamicQuery =</span>
+<span class="fc" id="L134">			_characterLocalService.getIndexableActionableDynamicQuery();</span>
+
+<span class="fc" id="L136">		indexableActionableDynamicQuery.setCompanyId(companyId);</span>
+<span class="fc" id="L137">		indexableActionableDynamicQuery.setPerformActionMethod(</span>
+<span class="fc" id="L138">			new ActionableDynamicQuery.PerformActionMethod&lt;Character&gt;() {</span>
+
+				@Override
+				public void performAction(Character character) {
+					try {
+<span class="fc" id="L143">						Document document = getDocument(character);</span>
+
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">						if (document != null) {</span>
+<span class="fc" id="L146">							indexableActionableDynamicQuery.addDocuments(</span>
+								document);
+						}
+					}
+<span class="nc" id="L150">					catch (PortalException pe) {</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">						if (_log.isWarnEnabled()) {</span>
+<span class="nc" id="L152">							_log.warn(</span>
+								&quot;Unable to index character &quot; +
+<span class="nc" id="L154">									character.getCharacterId(),</span>
+								pe);
+						}
+<span class="fc" id="L157">					}</span>
+<span class="fc" id="L158">				}</span>
+
+			});
+
+<span class="fc" id="L162">		indexableActionableDynamicQuery.setSearchEngineId(getSearchEngineId());</span>
+
+<span class="fc" id="L164">		indexableActionableDynamicQuery.performActions();</span>
+<span class="fc" id="L165">	}</span>
+
+	@Reference(unbind = &quot;-&quot;)
+	protected void setCharacterLocalService(
+		CharacterLocalService characterLocalService) {
+
+<span class="fc" id="L171">		_characterLocalService = characterLocalService;</span>
+<span class="fc" id="L172">	}</span>
+
+<span class="fc" id="L174">	private static final Log _log = LogFactoryUtil.getLog(</span>
+		CharacterIndexer.class);
+
+	private CharacterLocalService _characterLocalService;
+
+	@Reference
+	private IndexWriterHelper _indexWriterHelper;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

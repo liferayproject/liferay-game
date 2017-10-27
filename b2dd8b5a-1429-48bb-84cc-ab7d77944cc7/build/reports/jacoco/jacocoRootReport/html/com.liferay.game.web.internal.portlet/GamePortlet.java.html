@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GamePortlet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.web.internal.portlet</a> &gt; <span class="el_source">GamePortlet.java</span></div><h1>GamePortlet.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.web.internal.portlet;
+
+import com.liferay.game.web.internal.constant.GamePortletKeys;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+
+import javax.portlet.Portlet;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Eudaldo Alonso
+ */
+@Component(
+	immediate = true,
+	property = {
+		&quot;com.liferay.portlet.css-class-wrapper=portlet-game&quot;,
+		&quot;com.liferay.portlet.display-category=category.hidden&quot;,
+		&quot;com.liferay.portlet.preferences-owned-by-group=false&quot;,
+		&quot;com.liferay.portlet.private-request-attributes=false&quot;,
+		&quot;com.liferay.portlet.private-session-attributes=false&quot;,
+		&quot;com.liferay.portlet.render-weight=1&quot;,
+		&quot;com.liferay.portlet.use-default-template=true&quot;,
+		&quot;javax.portlet.display-name=Game&quot;, &quot;javax.portlet.expiration-cache=0&quot;,
+		&quot;javax.portlet.init-param.template-path=/&quot;,
+		&quot;javax.portlet.init-param.view-template=/view.jsp&quot;,
+		&quot;javax.portlet.name=&quot; + GamePortletKeys.GAME,
+		&quot;javax.portlet.resource-bundle=content.Language&quot;
+	},
+	service = Portlet.class
+)
+<span class="fc" id="L45">public class GamePortlet extends MVCPortlet {</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

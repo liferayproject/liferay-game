@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameDisplayContext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.web.internal.display.context</a> &gt; <span class="el_source">GameDisplayContext.java</span></div><h1>GameDisplayContext.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.web.internal.display.context;
+
+import com.liferay.game.model.Character;
+import com.liferay.game.service.CharacterLocalServiceUtil;
+import com.liferay.game.web.internal.constant.GameWebKeys;
+import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
+import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.portlet.PortletURLUtil;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+
+import javax.portlet.PortletURL;
+
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ * @author Eudaldo Alonso
+ */
+public class GameDisplayContext {
+
+	public GameDisplayContext(
+		LiferayPortletRequest portletRequest,
+<span class="fc" id="L44">		LiferayPortletResponse portletResponse) {</span>
+
+<span class="fc" id="L46">		_request = PortalUtil.getHttpServletRequest(portletRequest);</span>
+
+<span class="fc" id="L48">		_portletRequest = portletRequest;</span>
+<span class="fc" id="L49">		_portletResponse = portletResponse;</span>
+<span class="fc" id="L50">	}</span>
+
+	public Character getCharacter() {
+<span class="fc" id="L53">		Character character = (Character)_request.getAttribute(</span>
+			GameWebKeys.GAME_CHARACTER);
+
+<span class="fc" id="L56">		return character;</span>
+	}
+
+	public String getDisplayStyle() {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		if (_displayStyle != null) {</span>
+<span class="fc" id="L61">			return _displayStyle;</span>
+		}
+
+<span class="fc" id="L64">		_displayStyle = ParamUtil.getString(_request, &quot;displayStyle&quot;, &quot;icon&quot;);</span>
+
+<span class="fc" id="L66">		return _displayStyle;</span>
+	}
+
+	public PortletURL getEditURL() throws PortalException {
+<span class="fc" id="L70">		ThemeDisplay themeDisplay = (ThemeDisplay)_portletRequest.getAttribute(</span>
+			WebKeys.THEME_DISPLAY);
+
+<span class="fc" id="L73">		PortletURL portletURL = _portletResponse.createRenderURL();</span>
+
+<span class="fc" id="L75">		portletURL.setParameter(&quot;mvcRenderCommandName&quot;, &quot;/game/edit_character&quot;);</span>
+<span class="fc" id="L76">		portletURL.setParameter(&quot;redirect&quot;, themeDisplay.getURLCurrent());</span>
+
+<span class="fc" id="L78">		return portletURL;</span>
+	}
+
+	public String getOrderByCol() {
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if (Validator.isNotNull(_orderByCol)) {</span>
+<span class="nc" id="L83">			return _orderByCol;</span>
+		}
+
+<span class="fc" id="L86">		_orderByCol = ParamUtil.getString(_request, &quot;orderByCol&quot;, &quot;title&quot;);</span>
+
+<span class="fc" id="L88">		return _orderByCol;</span>
+	}
+
+	public String getOrderByType() {
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">		if (Validator.isNotNull(_orderByType)) {</span>
+<span class="nc" id="L93">			return _orderByType;</span>
+		}
+
+<span class="fc" id="L96">		_orderByType = ParamUtil.getString(_request, &quot;orderByType&quot;, &quot;asc&quot;);</span>
+
+<span class="fc" id="L98">		return _orderByType;</span>
+	}
+
+	public PortletURL getPortletURL() throws PortalException {
+<span class="fc" id="L102">		PortletURL portletURL = _portletResponse.createRenderURL();</span>
+
+<span class="fc" id="L104">		return portletURL;</span>
+	}
+
+	public String getRedirect() {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">		if (_redirect != null) {</span>
+<span class="fc" id="L109">			return _redirect;</span>
+		}
+
+<span class="fc" id="L112">		_redirect = ParamUtil.getString(_request, &quot;redirect&quot;);</span>
+
+<span class="fc" id="L114">		return _redirect;</span>
+	}
+
+	public SearchContainer getSearchContainer() throws Exception {
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		if (_searchContainer != null) {</span>
+<span class="nc" id="L119">			return _searchContainer;</span>
+		}
+
+<span class="fc" id="L122">		_searchContainer = new SearchContainer(</span>
+<span class="fc" id="L123">			_portletRequest, PortletURLUtil.clone(</span>
+<span class="fc" id="L124">				getPortletURL(), _portletResponse),</span>
+<span class="fc" id="L125">			null, LanguageUtil.get(_request, &quot;no-characters-were-found&quot;));</span>
+
+<span class="fc" id="L127">		_searchContainer.setRowChecker(</span>
+			new EmptyOnClickRowChecker(_portletResponse));
+
+<span class="fc" id="L130">		_searchContainer.setEmptyResultsMessageCssClass(</span>
+			&quot;taglib-empty-result-message-header-has-plus-btn&quot;);
+
+<span class="fc" id="L133">		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(</span>
+			WebKeys.THEME_DISPLAY);
+
+<span class="fc" id="L136">		_searchContainer.setTotal(</span>
+<span class="fc" id="L137">			CharacterLocalServiceUtil.getCharactersCount(</span>
+<span class="fc" id="L138">				themeDisplay.getScopeGroupId()));</span>
+<span class="fc" id="L139">		_searchContainer.setResults(</span>
+<span class="fc" id="L140">			CharacterLocalServiceUtil.getCharacters(</span>
+<span class="fc" id="L141">				themeDisplay.getScopeGroupId(),</span>
+<span class="fc" id="L142">			_searchContainer.getStart(), _searchContainer.getEnd()));</span>
+
+<span class="fc" id="L144">		return _searchContainer;</span>
+	}
+
+	private String _displayStyle;
+	private String _orderByCol;
+	private String _orderByType;
+	private final LiferayPortletRequest _portletRequest;
+	private final LiferayPortletResponse _portletResponse;
+	private String _redirect;
+	private final HttpServletRequest _request;
+	private SearchContainer _searchContainer;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>
