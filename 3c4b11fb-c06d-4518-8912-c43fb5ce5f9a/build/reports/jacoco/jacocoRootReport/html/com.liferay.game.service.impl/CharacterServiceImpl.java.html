@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.service.impl</a> &gt; <span class="el_source">CharacterServiceImpl.java</span></div><h1>CharacterServiceImpl.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.service.impl;
+
+import com.liferay.game.model.Character;
+import com.liferay.game.service.base.CharacterServiceBaseImpl;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.util.List;
+
+/**
+ * The implementation of the character remote service.
+ *
+ * &lt;p&gt;
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.liferay.game.service.CharacterService} interface.
+ *
+ * &lt;p&gt;
+ * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * &lt;/p&gt;
+ *
+ * @author Brian Wing Shun Chan
+ * @see CharacterServiceBaseImpl
+ * @see com.liferay.game.service.CharacterServiceUtil
+ */
+<span class="fc" id="L38">public class CharacterServiceImpl extends CharacterServiceBaseImpl {</span>
+
+	@Override
+	public Character addCharacter(
+			long userId, long groupId, String name, String url,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+<span class="fc" id="L46">		return characterLocalService.addCharacter(</span>
+			userId, groupId, name, url, serviceContext);
+	}
+
+	@Override
+	public Character deleteCharacter(long characterId) throws PortalException {
+<span class="fc" id="L52">		return characterLocalService.deleteCharacter(characterId);</span>
+	}
+
+	@Override
+	public void deleteCharacters(long groupId) throws PortalException {
+<span class="nc" id="L57">		characterLocalService.deleteCharacters(groupId);</span>
+<span class="nc" id="L58">	}</span>
+
+	@Override
+	public Character getCharacter(long characterId) throws PortalException {
+<span class="fc" id="L62">		return characterLocalService.getCharacter(characterId);</span>
+	}
+
+	@Override
+	public List&lt;Character&gt; getCharacters(long groupId, int start, int end) {
+<span class="fc" id="L67">		return characterLocalService.getCharacters(groupId, start, end);</span>
+	}
+
+	@Override
+	public Character updateCharacter(long characterId, String name, String url)
+		throws PortalException {
+
+<span class="fc" id="L74">		return characterLocalService.updateCharacter(characterId, name, url);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

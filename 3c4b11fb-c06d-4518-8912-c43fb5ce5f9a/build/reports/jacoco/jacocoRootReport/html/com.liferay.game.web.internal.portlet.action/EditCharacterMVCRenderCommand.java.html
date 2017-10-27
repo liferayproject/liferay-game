@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EditCharacterMVCRenderCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.web.internal.portlet.action</a> &gt; <span class="el_source">EditCharacterMVCRenderCommand.java</span></div><h1>EditCharacterMVCRenderCommand.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.web.internal.portlet.action;
+
+import com.liferay.game.exception.NoSuchCharacterException;
+import com.liferay.game.model.Character;
+import com.liferay.game.service.CharacterLocalService;
+import com.liferay.game.web.internal.constant.GamePortletKeys;
+import com.liferay.game.web.internal.constant.GameWebKeys;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.servlet.SessionErrors;
+import com.liferay.portal.kernel.util.ParamUtil;
+
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Eduardo Garcia
+ */
+@Component(
+	immediate = true,
+	property = {
+		&quot;javax.portlet.name=&quot; + GamePortletKeys.GAME,
+		&quot;mvc.command.name=/game/edit_character&quot;
+	},
+	service = MVCRenderCommand.class
+)
+<span class="fc" id="L45">public class EditCharacterMVCRenderCommand implements MVCRenderCommand {</span>
+
+	@Override
+	public String render(
+			RenderRequest renderRequest, RenderResponse renderResponse)
+		throws PortletException {
+
+<span class="fc" id="L52">		long characterId = ParamUtil.getLong(renderRequest, &quot;characterId&quot;);</span>
+
+		try {
+<span class="fc" id="L55">			Character character = _characterLocalService.fetchCharacter(</span>
+				characterId);
+
+<span class="fc" id="L58">			renderRequest.setAttribute(GameWebKeys.GAME_CHARACTER, character);</span>
+
+<span class="fc" id="L60">			return &quot;/edit_character.jsp&quot;;</span>
+		}
+<span class="nc" id="L62">		catch (Exception e) {</span>
+<span class="nc bnc" id="L63" title="All 4 branches missed.">			if (e instanceof NoSuchCharacterException ||</span>
+				e instanceof PrincipalException) {
+
+<span class="nc" id="L66">				SessionErrors.add(renderRequest, e.getClass());</span>
+
+<span class="nc" id="L68">				return &quot;/error.jsp&quot;;</span>
+			}
+			else {
+<span class="nc" id="L71">				throw new PortletException(e);</span>
+			}
+		}
+	}
+
+	@Reference
+	private CharacterLocalService _characterLocalService;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

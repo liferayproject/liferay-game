@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="Deleting Characters" skipped="0" tests="1" time="1.835203">
+<testcase classname="src/testIntegration/resources/features/characters/delete_character.feature" name="Deleting a Character" time="1.835203">
+<system-out><![CDATA[* def characterName = 'Robb Stark'..........................................passed
+* def characterUrl = 'https://en.wikipedia.org/wiki/File:Robb_Stark-Richard_Madden.jpg'.passed
+* call ../helper/setup.feature..............................................passed
+* def screenName = 'test'...................................................passed
+* def user = screenName + '@liferay.com'....................................passed
+* def pwd = 'test'..........................................................passed
+* def groupKey = 'Guest'....................................................passed
+* def creds = { username: '#(user)', password: '#(pwd)' }...................passed
+* def authHeaderValue = call read('../../plugins/basic-auth.js') creds......passed
+Given url companyURL........................................................passed
+And path 'get-company-by-virtual-host'......................................passed
+And header Authorization = authHeaderValue..................................passed
+And param virtualHost = 'localhost'.........................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+* def companyId = response.companyId........................................passed
+* def screenName = 'test'...................................................passed
+* def user = screenName + '@liferay.com'....................................passed
+* def pwd = 'test'..........................................................passed
+* def groupKey = 'Guest'....................................................passed
+* def creds = { username: '#(user)', password: '#(pwd)' }...................passed
+* def authHeaderValue = call read('../../plugins/basic-auth.js') creds......passed
+Given url groupURL..........................................................passed
+And path 'get-group'........................................................passed
+And header Authorization = authHeaderValue..................................passed
+And param companyId = companyId.............................................passed
+And param groupKey = groupKey...............................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+* def groupId = response.groupId............................................passed
+* def screenName = 'test'...................................................passed
+* def user = screenName + '@liferay.com'....................................passed
+* def pwd = 'test'..........................................................passed
+* def groupKey = 'Guest'....................................................passed
+* def creds = { username: '#(user)', password: '#(pwd)' }...................passed
+* def authHeaderValue = call read('../../plugins/basic-auth.js') creds......passed
+Given url userURL...........................................................passed
+And path 'get-user-by-screen-name'..........................................passed
+And header Authorization = authHeaderValue..................................passed
+And param companyId = companyId.............................................passed
+And param screenName = screenName...........................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+* def userId = response.userId..............................................passed
+* def screenName = 'test'...................................................passed
+* def user = screenName + '@liferay.com'....................................passed
+* def pwd = 'test'..........................................................passed
+* def groupKey = 'Guest'....................................................passed
+* def creds = { username: '#(user)', password: '#(pwd)' }...................passed
+* def authHeaderValue = call read('../../plugins/basic-auth.js') creds......passed
+* def authHeaderValue = call read('../../plugins/basic-auth.js') creds......passed
+* def setupReponse = call read('../helper/setup.feature')...................passed
+* def authHeaderValue = setupReponse.authHeaderValue........................passed
+* def companyId = setupReponse.companyId....................................passed
+* def groupId = setupReponse.groupId........................................passed
+* def userId = setupReponse.userId..........................................passed
+Given url characterURL......................................................passed
+And path 'add-character'....................................................passed
+And header Authorization = authHeaderValue..................................passed
+And param userId = userId...................................................passed
+And param groupId = groupId.................................................passed
+And param name = characterName..............................................passed
+And param url = characterUrl................................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+* def characterId = response.characterId....................................passed
+Given url characterURL......................................................passed
+And path 'delete-character'.................................................passed
+And header Authorization = authHeaderValue..................................passed
+And param characterId = characterId.........................................passed
+When method get.............................................................passed
+Then status 200.............................................................passed
+Given url characterURL......................................................passed
+And path 'get-character'....................................................passed
+And header Authorization = authHeaderValue..................................passed
+And param characterId = characterId.........................................passed
+When method get.............................................................passed
+Then status 500.............................................................passed
+And match response.exception == 'No Character exists with the primary key ' + characterId.passed
+]]></system-out>
+</testcase>
+</testsuite>

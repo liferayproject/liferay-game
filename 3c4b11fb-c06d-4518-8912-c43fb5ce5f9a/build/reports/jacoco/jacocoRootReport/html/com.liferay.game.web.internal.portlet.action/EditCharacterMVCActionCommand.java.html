@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EditCharacterMVCActionCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.web.internal.portlet.action</a> &gt; <span class="el_source">EditCharacterMVCActionCommand.java</span></div><h1>EditCharacterMVCActionCommand.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.web.internal.portlet.action;
+
+import com.liferay.game.exception.NoSuchCharacterException;
+import com.liferay.game.service.CharacterLocalService;
+import com.liferay.game.web.internal.constant.GamePortletKeys;
+import com.liferay.game.web.internal.constant.GameWebKeys;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.ServiceContextFactory;
+import com.liferay.portal.kernel.servlet.SessionErrors;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Eduardo Garcia
+ */
+@Component(
+	immediate = true,
+	property = {
+		&quot;javax.portlet.name=&quot; + GamePortletKeys.GAME,
+		&quot;mvc.command.name=/game/edit_character&quot;
+	},
+	service = MVCActionCommand.class
+)
+<span class="fc" id="L50">public class EditCharacterMVCActionCommand extends BaseMVCActionCommand {</span>
+
+	protected void deleteCharacters(ActionRequest actionRequest)
+		throws PortalException {
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		for (long characterId : getCharacterIds(actionRequest)) {</span>
+<span class="nc" id="L56">			_characterLocalService.deleteCharacter(characterId);</span>
+		}
+<span class="nc" id="L58">	}</span>
+
+	@Override
+	protected void doProcessAction(
+			ActionRequest actionRequest, ActionResponse actionResponse)
+		throws Exception {
+
+<span class="fc" id="L65">		String cmd = ParamUtil.getString(actionRequest, Constants.CMD);</span>
+
+		try {
+<span class="pc bpc" id="L68" title="1 of 4 branches missed.">			if (cmd.equals(Constants.ADD) || cmd.equals(Constants.UPDATE)) {</span>
+<span class="fc" id="L69">				updateCharacter(actionRequest);</span>
+			}
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">			else if (cmd.equals(Constants.DELETE)) {</span>
+<span class="nc" id="L72">				deleteCharacters(actionRequest);</span>
+			}
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">			else if (cmd.equals(GameWebKeys.KILL_CHARACTER)) {</span>
+<span class="fc" id="L75">				killCharacters(actionRequest);</span>
+			}
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			else if (cmd.equals(GameWebKeys.REVIVE_CHARACTER)) {</span>
+<span class="nc" id="L78">				reviveCharacters(actionRequest);</span>
+			}
+		}
+<span class="nc" id="L81">		catch (Exception e) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (e instanceof PrincipalException) {</span>
+<span class="nc" id="L83">				SessionErrors.add(actionRequest, e.getClass());</span>
+
+<span class="nc" id="L85">				actionResponse.setRenderParameter(&quot;mvcPath&quot;, &quot;/error.jsp&quot;);</span>
+			}
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			else if (e instanceof NoSuchCharacterException) {</span>
+<span class="nc" id="L88">				SessionErrors.add(actionRequest, e.getClass());</span>
+			}
+			else {
+<span class="nc" id="L91">				throw e;</span>
+			}
+<span class="fc" id="L93">		}</span>
+<span class="fc" id="L94">	}</span>
+
+	protected long[] getCharacterIds(ActionRequest actionRequest) {
+<span class="fc" id="L97">		long characterId = ParamUtil.getLong(actionRequest, &quot;characterId&quot;);</span>
+
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">		if (characterId &gt; 0) {</span>
+<span class="fc" id="L100">			return new long[] {characterId};</span>
+		}
+
+<span class="nc" id="L103">		return ParamUtil.getLongValues(actionRequest, &quot;rowIds&quot;);</span>
+	}
+
+	protected void killCharacters(ActionRequest actionRequest)
+		throws PortalException {
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		for (long characterId : getCharacterIds(actionRequest)) {</span>
+<span class="fc" id="L110">			_characterLocalService.killCharacter(characterId);</span>
+		}
+<span class="fc" id="L112">	}</span>
+
+	protected void reviveCharacters(ActionRequest actionRequest)
+		throws PortalException {
+
+<span class="nc bnc" id="L117" title="All 2 branches missed.">		for (long characterId : getCharacterIds(actionRequest)) {</span>
+<span class="nc" id="L118">			_characterLocalService.reviveCharacter(characterId);</span>
+		}
+<span class="nc" id="L120">	}</span>
+
+	protected void updateCharacter(ActionRequest actionRequest)
+		throws Exception {
+
+<span class="fc" id="L125">		long characterId = ParamUtil.getLong(actionRequest, &quot;characterId&quot;);</span>
+
+<span class="fc" id="L127">		String name = ParamUtil.getString(actionRequest, &quot;name&quot;);</span>
+<span class="fc" id="L128">		String url = ParamUtil.getString(actionRequest, &quot;url&quot;);</span>
+
+<span class="fc" id="L130">		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(</span>
+			WebKeys.THEME_DISPLAY);
+
+<span class="fc" id="L133">		ServiceContext serviceContext = ServiceContextFactory.getInstance(</span>
+			actionRequest);
+
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		if (characterId &lt;= 0) {</span>
+<span class="fc" id="L137">			_characterLocalService.addCharacter(</span>
+<span class="fc" id="L138">				themeDisplay.getUserId(), themeDisplay.getScopeGroupId(), name,</span>
+				url, serviceContext);
+		}
+		else {
+<span class="nc" id="L142">			_characterLocalService.updateCharacter(characterId, name, url);</span>
+		}
+<span class="fc" id="L144">	}</span>
+
+	@Reference(unbind = &quot;-&quot;)
+	private CharacterLocalService _characterLocalService;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

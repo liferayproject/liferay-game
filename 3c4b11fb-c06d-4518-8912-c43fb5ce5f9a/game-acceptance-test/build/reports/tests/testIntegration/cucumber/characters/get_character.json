@@ -1,0 +1,3471 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 58193522,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def characterName \u003d \u0027Robb Stark\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Robb Stark\u0027",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 5,
+              "value": "03:20:37.789 INFO  - test.url is: http://localhost:8080 \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 8284684,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def characterUrl \u003d \u0027https://en.wikipedia.org/wiki/File:Robb_Stark-Richard_Madden.jpg\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterUrl",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027https://en.wikipedia.org/wiki/File:Robb_Stark-Richard_Madden.jpg\u0027",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call ../helper/setup.feature",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "url companyURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "path \u0027get-company-by-virtual-host\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-company-by-virtual-host\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "param virtualHost \u003d \u0027localhost\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "virtualHost",
+                  "offset": 6
+                },
+                {
+                  "val": "\u0027localhost\u0027",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 18,
+              "value": "03:20:37.953 DEBUG - \n1 \u003e GET http://localhost:8080/api/jsonws/company/get-company-by-virtual-host?virtualHost\u003dlocalhost\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n1 \u003e Connection: Keep-Alive\n1 \u003e Host: localhost:8080\n1 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:38.186 DEBUG - \n1 \u003c 200\n1 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n1 \u003c Content-Length: 201\n1 \u003c Content-Type: application/json;charset\u003dUTF-8\n1 \u003c Date: Fri, 27 Oct 2017 03:20:38 GMT\n1 \u003c Server: Apache-Coyote/1.1\n1 \u003c Set-Cookie: [JSESSIONID\u003dC9DA521C086CFD7394F56E996B1361AA; Path\u003d/; HttpOnly, GUEST_LANGUAGE_ID\u003den_US; Expires\u003dSat, 27-Oct-2018 03:20:38 GMT; Path\u003d/; HttpOnly]\n1 \u003c X-Content-Type-Options: nosniff\n1 \u003c X-Frame-Options: SAMEORIGIN\n1 \u003c X-XSS-Protection: 1\n{\"accountId\":\"20118\",\"active\":true,\"companyId\":\"20116\",\"homeURL\":\"\",\"key\":\"5A1L5LI4UZeqyYRqj+2WRA\u003d\u003d\",\"logoId\":\"0\",\"maxUsers\":0,\"mvccVersion\":\"1\",\"mx\":\"liferay.com\",\"system\":false,\"webId\":\"liferay.com\"}\n\n03:20:38.188 DEBUG - response time in milliseconds: 236\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "def companyId \u003d response.companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.companyId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "url groupURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "path \u0027get-group\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-group\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "param companyId \u003d companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 6
+                },
+                {
+                  "val": "companyId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "param groupKey \u003d groupKey",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 6
+                },
+                {
+                  "val": "groupKey",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 30,
+              "value": "03:20:38.254 DEBUG - \n2 \u003e GET http://localhost:8080/api/jsonws/group/get-group?companyId\u003d20116\u0026groupKey\u003dGuest\n2 \u003e Accept-Encoding: gzip,deflate\n2 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n2 \u003e Connection: Keep-Alive\n2 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dC9DA521C086CFD7394F56E996B1361AA\n2 \u003e Host: localhost:8080\n2 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:38.452 DEBUG - \n2 \u003c 200\n2 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n2 \u003c Content-Length: 664\n2 \u003c Content-Type: application/json;charset\u003dUTF-8\n2 \u003c Date: Fri, 27 Oct 2017 03:20:38 GMT\n2 \u003c Server: Apache-Coyote/1.1\n2 \u003c X-Content-Type-Options: nosniff\n2 \u003c X-Frame-Options: SAMEORIGIN\n2 \u003c X-XSS-Protection: 1\n{\"active\":true,\"classNameId\":\"20045\",\"classPK\":\"20143\",\"companyId\":\"20116\",\"creatorUserId\":\"20120\",\"description\":\"\",\"descriptionCurrentValue\":\"\",\"descriptiveName\":\"Liferay\",\"friendlyURL\":\"\\/guest\",\"groupId\":\"20143\",\"groupKey\":\"Guest\",\"inheritContent\":false,\"liveGroupId\":\"0\",\"manualMembership\":true,\"membershipRestriction\":0,\"mvccVersion\":\"0\",\"name\":\"\u003c?xml version\u003d\u00271.0\u0027 encoding\u003d\u0027UTF-8\u0027?\u003e\u003croot available-locales\u003d\\\"en_US\\\" default-locale\u003d\\\"en_US\\\"\u003e\u003cName language-id\u003d\\\"en_US\\\"\u003eGuest\u003c\\/Name\u003e\u003c\\/root\u003e\",\"nameCurrentValue\":\"Guest\",\"parentGroupId\":\"0\",\"remoteStagingGroupCount\":0,\"site\":true,\"treePath\":\"\\/20143\\/\",\"type\":1,\"uuid\":\"278de114-477b-0032-f134-c6c00b3cd3cf\"}\n\n03:20:38.464 DEBUG - response time in milliseconds: 209\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "def groupId \u003d response.groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.groupId",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "url userURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "path \u0027get-user-by-screen-name\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-user-by-screen-name\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "param companyId \u003d companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 6
+                },
+                {
+                  "val": "companyId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "param screenName \u003d screenName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 6
+                },
+                {
+                  "val": "screenName",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 42,
+              "value": "03:20:38.571 DEBUG - \n3 \u003e GET http://localhost:8080/api/jsonws/user/get-user-by-screen-name?companyId\u003d20116\u0026screenName\u003dtest\n3 \u003e Accept-Encoding: gzip,deflate\n3 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n3 \u003e Connection: Keep-Alive\n3 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dC9DA521C086CFD7394F56E996B1361AA\n3 \u003e Host: localhost:8080\n3 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:38.796 DEBUG - \n3 \u003c 200\n3 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n3 \u003c Content-Length: 799\n3 \u003c Content-Type: application/json;charset\u003dUTF-8\n3 \u003c Date: Fri, 27 Oct 2017 03:20:38 GMT\n3 \u003c Server: Apache-Coyote/1.1\n3 \u003c X-Content-Type-Options: nosniff\n3 \u003c X-Frame-Options: SAMEORIGIN\n3 \u003c X-XSS-Protection: 1\n{\"agreedToTermsOfUse\":false,\"comments\":\"\",\"companyId\":\"20116\",\"contactId\":\"20157\",\"createDate\":1509074337475,\"defaultUser\":false,\"emailAddress\":\"test@liferay.com\",\"emailAddressVerified\":true,\"facebookId\":\"0\",\"failedLoginAttempts\":0,\"firstName\":\"Test\",\"googleUserId\":\"\",\"graceLoginCount\":0,\"greeting\":\"Welcome Test Test!\",\"jobTitle\":\"\",\"languageId\":\"en_US\",\"lastFailedLoginDate\":null,\"lastLoginDate\":1509074337553,\"lastLoginIP\":\"\",\"lastName\":\"Test\",\"ldapServerId\":\"-1\",\"lockout\":false,\"lockoutDate\":null,\"loginDate\":1509074337553,\"loginIP\":\"\",\"middleName\":\"\",\"modifiedDate\":1509074434031,\"mvccVersion\":\"2\",\"openId\":\"\",\"portraitId\":\"0\",\"reminderQueryAnswer\":\"\",\"reminderQueryQuestion\":\"\",\"screenName\":\"test\",\"status\":0,\"timeZoneId\":\"UTC\",\"userId\":\"20156\",\"uuid\":\"08c7d33a-9c0b-ba11-018d-1cfabf762b8b\"}\n\n03:20:38.797 DEBUG - response time in milliseconds: 228\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "def userId \u003d response.userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.userId",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 1092119691,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def setupReponse \u003d call read(\u0027../helper/setup.feature\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "setupReponse",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../helper/setup.feature\u0027)",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 164451,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d setupReponse.authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.authHeaderValue",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 131726,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "def companyId \u003d setupReponse.companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.companyId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 138022,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "def groupId \u003d setupReponse.groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.groupId",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 142281,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "def userId \u003d setupReponse.userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.userId",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          }
+        ]
+      },
+      {
+        "line": 15,
+        "name": "Getting a Character",
+        "description": "",
+        "id": "getting-characters;getting-a-character",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 58732,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 17,
+                "value": "# Setup"
+              }
+            ],
+            "line": 19,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3560679,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "path \u0027add-character\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027add-character\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 86570,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 91607,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "param userId \u003d userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 6
+                },
+                {
+                  "val": "userId",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66139,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "param groupId \u003d groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 6
+                },
+                {
+                  "val": "groupId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72334,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "param name \u003d characterName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "name",
+                  "offset": 6
+                },
+                {
+                  "val": "characterName",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 207171,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "param url \u003d characterUrl",
+            "match": {
+              "arguments": [
+                {
+                  "val": "url",
+                  "offset": 6
+                },
+                {
+                  "val": "characterUrl",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 193166133,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 26,
+              "value": "03:20:38.920 DEBUG - \n1 \u003e GET http://localhost:8080/api/jsonws/game.character/add-character?userId\u003d20156\u0026groupId\u003d20143\u0026name\u003dRobb+Stark\u0026url\u003dhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ARobb_Stark-Richard_Madden.jpg\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n1 \u003e Connection: Keep-Alive\n1 \u003e Host: localhost:8080\n1 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:39.107 DEBUG - \n1 \u003c 200\n1 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n1 \u003c Content-Length: 317\n1 \u003c Content-Type: application/json;charset\u003dUTF-8\n1 \u003c Date: Fri, 27 Oct 2017 03:20:38 GMT\n1 \u003c Server: Apache-Coyote/1.1\n1 \u003c Set-Cookie: [JSESSIONID\u003dBE5FEA26D12ECA4C453E01E69B074FE8; Path\u003d/; HttpOnly, GUEST_LANGUAGE_ID\u003den_US; Expires\u003dSat, 27-Oct-2018 03:20:39 GMT; Path\u003d/; HttpOnly]\n1 \u003c X-Content-Type-Options: nosniff\n1 \u003c X-Frame-Options: SAMEORIGIN\n1 \u003c X-XSS-Protection: 1\n{\"characterId\":\"27807\",\"companyId\":\"20116\",\"createDate\":1509074439100,\"groupId\":\"20143\",\"modifiedDate\":1509074439100,\"name\":\"Robb Stark\",\"status\":\"ALIVE\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/File:Robb_Stark-Richard_Madden.jpg\",\"userId\":\"20156\",\"userName\":\"Test Test\",\"uuid\":\"4a33b042-00b6-d112-5984-b25f97fa2a1e\"}\n\n03:20:39.107 DEBUG - response time in milliseconds: 188\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 137916,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 170907,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "def characterId \u003d response.characterId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.characterId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 53764,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 31,
+                "value": "# Verify"
+              }
+            ],
+            "line": 33,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 12523638,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "path \u0027get-character\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-character\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 105500,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 85083,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "param characterId \u003d characterId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterId",
+                  "offset": 6
+                },
+                {
+                  "val": "characterId",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 198228592,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 37,
+              "value": "03:20:39.142 DEBUG - \n2 \u003e GET http://localhost:8080/api/jsonws/game.character/get-character?characterId\u003d27807\n2 \u003e Accept-Encoding: gzip,deflate\n2 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n2 \u003e Connection: Keep-Alive\n2 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dBE5FEA26D12ECA4C453E01E69B074FE8\n2 \u003e Host: localhost:8080\n2 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:39.338 DEBUG - \n2 \u003c 200\n2 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n2 \u003c Content-Length: 317\n2 \u003c Content-Type: application/json;charset\u003dUTF-8\n2 \u003c Date: Fri, 27 Oct 2017 03:20:39 GMT\n2 \u003c Server: Apache-Coyote/1.1\n2 \u003c X-Content-Type-Options: nosniff\n2 \u003c X-Frame-Options: SAMEORIGIN\n2 \u003c X-XSS-Protection: 1\n{\"characterId\":\"27807\",\"companyId\":\"20116\",\"createDate\":1509074439100,\"groupId\":\"20143\",\"modifiedDate\":1509074439100,\"name\":\"Robb Stark\",\"status\":\"ALIVE\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/File:Robb_Stark-Richard_Madden.jpg\",\"userId\":\"20156\",\"userName\":\"Test Test\",\"uuid\":\"4a33b042-00b6-d112-5984-b25f97fa2a1e\"}\n\n03:20:39.339 DEBUG - response time in milliseconds: 198\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 117831,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 40960088,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "match response contains",
+            "match": {
+              "arguments": [
+                {},
+                {
+                  "val": "response",
+                  "offset": 6
+                },
+                {},
+                {},
+                {}
+              ],
+              "location": "StepDefs.matchContainsDocString(String,String,String,String,String,String)"
+            },
+            "keyword": "And ",
+            "doc_string": {
+              "content_type": "",
+              "line": 40,
+              "value": "{\n    characterId: \u0027#notnull\u0027,\n    companyId: \u0027#(companyId)\u0027,\n    createDate: \u0027#notnull\u0027,\n    groupId: \u0027#notnull\u0027,\n    modifiedDate: \u0027#notnull\u0027,\n    name: \u0027#(characterName)\u0027,\n    url: \u0027#(characterUrl)\u0027,\n    userId: \u0027#(userId)\u0027,\n    userName: \u0027#notnull\u0027,\n    uuid: \u0027#notnull\u0027\n}"
+            }
+          },
+          {
+            "result": {
+              "duration": 136204,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 55,
+                "value": "# Cleanup"
+              }
+            ],
+            "line": 57,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4174343,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "path \u0027delete-character\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027delete-character\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 95495,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 70709,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "param characterId \u003d characterId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterId",
+                  "offset": 6
+                },
+                {
+                  "val": "characterId",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 204234297,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 61,
+              "value": "03:20:39.390 DEBUG - \n3 \u003e GET http://localhost:8080/api/jsonws/game.character/delete-character?characterId\u003d27807\n3 \u003e Accept-Encoding: gzip,deflate\n3 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n3 \u003e Connection: Keep-Alive\n3 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dBE5FEA26D12ECA4C453E01E69B074FE8\n3 \u003e Host: localhost:8080\n3 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:39.592 DEBUG - \n3 \u003c 200\n3 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n3 \u003c Content-Length: 317\n3 \u003c Content-Type: application/json;charset\u003dUTF-8\n3 \u003c Date: Fri, 27 Oct 2017 03:20:39 GMT\n3 \u003c Server: Apache-Coyote/1.1\n3 \u003c X-Content-Type-Options: nosniff\n3 \u003c X-Frame-Options: SAMEORIGIN\n3 \u003c X-XSS-Protection: 1\n{\"characterId\":\"27807\",\"companyId\":\"20116\",\"createDate\":1509074439100,\"groupId\":\"20143\",\"modifiedDate\":1509074439100,\"name\":\"Robb Stark\",\"status\":\"ALIVE\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/File:Robb_Stark-Richard_Madden.jpg\",\"userId\":\"20156\",\"userName\":\"Test Test\",\"uuid\":\"4a33b042-00b6-d112-5984-b25f97fa2a1e\"}\n\n03:20:39.592 DEBUG - response time in milliseconds: 203\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 85340,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 75083153,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def characterName \u003d \u0027Robb Stark\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Robb Stark\u0027",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* ",
+            "doc_string": {
+              "content_type": "",
+              "line": 5,
+              "value": "03:20:39.663 INFO  - test.url is: http://localhost:8080 \n"
+            }
+          },
+          {
+            "result": {
+              "duration": 3515466,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def characterUrl \u003d \u0027https://en.wikipedia.org/wiki/File:Robb_Stark-Richard_Madden.jpg\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterUrl",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027https://en.wikipedia.org/wiki/File:Robb_Stark-Richard_Madden.jpg\u0027",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 0,
+            "name": "call ../helper/setup.feature",
+            "match": {},
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "url companyURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "path \u0027get-company-by-virtual-host\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-company-by-virtual-host\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "param virtualHost \u003d \u0027localhost\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "virtualHost",
+                  "offset": 6
+                },
+                {
+                  "val": "\u0027localhost\u0027",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 18,
+              "value": "03:20:39.776 DEBUG - \n1 \u003e GET http://localhost:8080/api/jsonws/company/get-company-by-virtual-host?virtualHost\u003dlocalhost\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n1 \u003e Connection: Keep-Alive\n1 \u003e Host: localhost:8080\n1 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:39.969 DEBUG - \n1 \u003c 200\n1 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n1 \u003c Content-Length: 201\n1 \u003c Content-Type: application/json;charset\u003dUTF-8\n1 \u003c Date: Fri, 27 Oct 2017 03:20:39 GMT\n1 \u003c Server: Apache-Coyote/1.1\n1 \u003c Set-Cookie: [JSESSIONID\u003d6F8295896FBEEB65F262C6110B6AB36C; Path\u003d/; HttpOnly, GUEST_LANGUAGE_ID\u003den_US; Expires\u003dSat, 27-Oct-2018 03:20:39 GMT; Path\u003d/; HttpOnly]\n1 \u003c X-Content-Type-Options: nosniff\n1 \u003c X-Frame-Options: SAMEORIGIN\n1 \u003c X-XSS-Protection: 1\n{\"accountId\":\"20118\",\"active\":true,\"companyId\":\"20116\",\"homeURL\":\"\",\"key\":\"5A1L5LI4UZeqyYRqj+2WRA\u003d\u003d\",\"logoId\":\"0\",\"maxUsers\":0,\"mvccVersion\":\"1\",\"mx\":\"liferay.com\",\"system\":false,\"webId\":\"liferay.com\"}\n\n03:20:39.969 DEBUG - response time in milliseconds: 197\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "def companyId \u003d response.companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.companyId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "url groupURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "path \u0027get-group\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-group\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "param companyId \u003d companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 6
+                },
+                {
+                  "val": "companyId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "param groupKey \u003d groupKey",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 6
+                },
+                {
+                  "val": "groupKey",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 30,
+              "value": "03:20:40.043 DEBUG - \n2 \u003e GET http://localhost:8080/api/jsonws/group/get-group?companyId\u003d20116\u0026groupKey\u003dGuest\n2 \u003e Accept-Encoding: gzip,deflate\n2 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n2 \u003e Connection: Keep-Alive\n2 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003d6F8295896FBEEB65F262C6110B6AB36C\n2 \u003e Host: localhost:8080\n2 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:40.243 DEBUG - \n2 \u003c 200\n2 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n2 \u003c Content-Length: 664\n2 \u003c Content-Type: application/json;charset\u003dUTF-8\n2 \u003c Date: Fri, 27 Oct 2017 03:20:39 GMT\n2 \u003c Server: Apache-Coyote/1.1\n2 \u003c X-Content-Type-Options: nosniff\n2 \u003c X-Frame-Options: SAMEORIGIN\n2 \u003c X-XSS-Protection: 1\n{\"active\":true,\"classNameId\":\"20045\",\"classPK\":\"20143\",\"companyId\":\"20116\",\"creatorUserId\":\"20120\",\"description\":\"\",\"descriptionCurrentValue\":\"\",\"descriptiveName\":\"Liferay\",\"friendlyURL\":\"\\/guest\",\"groupId\":\"20143\",\"groupKey\":\"Guest\",\"inheritContent\":false,\"liveGroupId\":\"0\",\"manualMembership\":true,\"membershipRestriction\":0,\"mvccVersion\":\"0\",\"name\":\"\u003c?xml version\u003d\u00271.0\u0027 encoding\u003d\u0027UTF-8\u0027?\u003e\u003croot available-locales\u003d\\\"en_US\\\" default-locale\u003d\\\"en_US\\\"\u003e\u003cName language-id\u003d\\\"en_US\\\"\u003eGuest\u003c\\/Name\u003e\u003c\\/root\u003e\",\"nameCurrentValue\":\"Guest\",\"parentGroupId\":\"0\",\"remoteStagingGroupCount\":0,\"site\":true,\"treePath\":\"\\/20143\\/\",\"type\":1,\"uuid\":\"278de114-477b-0032-f134-c6c00b3cd3cf\"}\n\n03:20:40.243 DEBUG - response time in milliseconds: 201\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "def groupId \u003d response.groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.groupId",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "url userURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "path \u0027get-user-by-screen-name\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-user-by-screen-name\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "param companyId \u003d companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 6
+                },
+                {
+                  "val": "companyId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "param screenName \u003d screenName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 6
+                },
+                {
+                  "val": "screenName",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 42,
+              "value": "03:20:40.334 DEBUG - \n3 \u003e GET http://localhost:8080/api/jsonws/user/get-user-by-screen-name?companyId\u003d20116\u0026screenName\u003dtest\n3 \u003e Accept-Encoding: gzip,deflate\n3 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n3 \u003e Connection: Keep-Alive\n3 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003d6F8295896FBEEB65F262C6110B6AB36C\n3 \u003e Host: localhost:8080\n3 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:40.529 DEBUG - \n3 \u003c 200\n3 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n3 \u003c Content-Length: 799\n3 \u003c Content-Type: application/json;charset\u003dUTF-8\n3 \u003c Date: Fri, 27 Oct 2017 03:20:40 GMT\n3 \u003c Server: Apache-Coyote/1.1\n3 \u003c X-Content-Type-Options: nosniff\n3 \u003c X-Frame-Options: SAMEORIGIN\n3 \u003c X-XSS-Protection: 1\n{\"agreedToTermsOfUse\":false,\"comments\":\"\",\"companyId\":\"20116\",\"contactId\":\"20157\",\"createDate\":1509074337475,\"defaultUser\":false,\"emailAddress\":\"test@liferay.com\",\"emailAddressVerified\":true,\"facebookId\":\"0\",\"failedLoginAttempts\":0,\"firstName\":\"Test\",\"googleUserId\":\"\",\"graceLoginCount\":0,\"greeting\":\"Welcome Test Test!\",\"jobTitle\":\"\",\"languageId\":\"en_US\",\"lastFailedLoginDate\":null,\"lastLoginDate\":1509074337553,\"lastLoginIP\":\"\",\"lastName\":\"Test\",\"ldapServerId\":\"-1\",\"lockout\":false,\"lockoutDate\":null,\"loginDate\":1509074337553,\"loginIP\":\"\",\"middleName\":\"\",\"modifiedDate\":1509074434031,\"mvccVersion\":\"2\",\"openId\":\"\",\"portraitId\":\"0\",\"reminderQueryAnswer\":\"\",\"reminderQueryQuestion\":\"\",\"screenName\":\"test\",\"status\":0,\"timeZoneId\":\"UTC\",\"userId\":\"20156\",\"uuid\":\"08c7d33a-9c0b-ba11-018d-1cfabf762b8b\"}\n\n03:20:40.532 DEBUG - response time in milliseconds: 199\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "def userId \u003d response.userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.userId",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "def screenName \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "screenName",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 17
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "def user \u003d screenName + \u0027@liferay.com\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "user",
+                  "offset": 4
+                },
+                {
+                  "val": "screenName + \u0027@liferay.com\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "def pwd \u003d \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "pwd",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027test\u0027",
+                  "offset": 10
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def groupKey \u003d \u0027Guest\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupKey",
+                  "offset": 4
+                },
+                {
+                  "val": "\u0027Guest\u0027",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "def creds \u003d { username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+            "match": {
+              "arguments": [
+                {
+                  "val": "creds",
+                  "offset": 4
+                },
+                {
+                  "val": "{ username: \u0027#(user)\u0027, password: \u0027#(pwd)\u0027 }",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 0,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "def authHeaderValue \u003d call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../../plugins/basic-auth.js\u0027) creds",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 921443638,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "def setupReponse \u003d call read(\u0027../helper/setup.feature\u0027)",
+            "match": {
+              "arguments": [
+                {
+                  "val": "setupReponse",
+                  "offset": 4
+                },
+                {
+                  "val": "call read(\u0027../helper/setup.feature\u0027)",
+                  "offset": 19
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 153496,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "def authHeaderValue \u003d setupReponse.authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "authHeaderValue",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.authHeaderValue",
+                  "offset": 22
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 123490,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "def companyId \u003d setupReponse.companyId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "companyId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.companyId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 121671,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "def groupId \u003d setupReponse.groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.groupId",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 114544,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "def userId \u003d setupReponse.userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 4
+                },
+                {
+                  "val": "setupReponse.userId",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          }
+        ]
+      },
+      {
+        "line": 64,
+        "name": "Get all Characters in a group",
+        "description": "",
+        "id": "getting-characters;get-all-characters-in-a-group",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 39344,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 66,
+                "value": "# Setup"
+              }
+            ],
+            "line": 68,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4776158,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "path \u0027add-character\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027add-character\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 71254,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 66455,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "param userId \u003d userId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "userId",
+                  "offset": 6
+                },
+                {
+                  "val": "userId",
+                  "offset": 15
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 62522,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "param groupId \u003d groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 6
+                },
+                {
+                  "val": "groupId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 57261,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "param name \u003d characterName",
+            "match": {
+              "arguments": [
+                {
+                  "val": "name",
+                  "offset": 6
+                },
+                {
+                  "val": "characterName",
+                  "offset": 13
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 58765,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "param url \u003d characterUrl",
+            "match": {
+              "arguments": [
+                {
+                  "val": "url",
+                  "offset": 6
+                },
+                {
+                  "val": "characterUrl",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258806226,
+              "status": "passed"
+            },
+            "line": 75,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 75,
+              "value": "03:20:40.610 DEBUG - \n1 \u003e GET http://localhost:8080/api/jsonws/game.character/add-character?userId\u003d20156\u0026groupId\u003d20143\u0026name\u003dRobb+Stark\u0026url\u003dhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ARobb_Stark-Richard_Madden.jpg\n1 \u003e Accept-Encoding: gzip,deflate\n1 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n1 \u003e Connection: Keep-Alive\n1 \u003e Host: localhost:8080\n1 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:40.858 DEBUG - \n1 \u003c 200\n1 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n1 \u003c Content-Length: 317\n1 \u003c Content-Type: application/json;charset\u003dUTF-8\n1 \u003c Date: Fri, 27 Oct 2017 03:20:40 GMT\n1 \u003c Server: Apache-Coyote/1.1\n1 \u003c Set-Cookie: [JSESSIONID\u003dCBF5B1A99B2F22B1AB8B4F5704C14797; Path\u003d/; HttpOnly, GUEST_LANGUAGE_ID\u003den_US; Expires\u003dSat, 27-Oct-2018 03:20:40 GMT; Path\u003d/; HttpOnly]\n1 \u003c X-Content-Type-Options: nosniff\n1 \u003c X-Frame-Options: SAMEORIGIN\n1 \u003c X-XSS-Protection: 1\n{\"characterId\":\"27808\",\"companyId\":\"20116\",\"createDate\":1509074440841,\"groupId\":\"20143\",\"modifiedDate\":1509074440841,\"name\":\"Robb Stark\",\"status\":\"ALIVE\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/File:Robb_Stark-Richard_Madden.jpg\",\"userId\":\"20156\",\"userName\":\"Test Test\",\"uuid\":\"6ebb0b12-9f50-f6d8-bc98-cb7aa7db7a02\"}\n\n03:20:40.859 DEBUG - response time in milliseconds: 254\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 106462,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 165670,
+              "status": "passed"
+            },
+            "line": 78,
+            "name": "def characterId \u003d response.characterId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterId",
+                  "offset": 4
+                },
+                {
+                  "val": "response.characterId",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.def(String,String)"
+            },
+            "keyword": "* "
+          },
+          {
+            "result": {
+              "duration": 45252,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 80,
+                "value": "# Verify that the number of characters returned is greater than 0"
+              }
+            ],
+            "line": 82,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5184531,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "path \u0027get-characters\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027get-characters\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72211,
+              "status": "passed"
+            },
+            "line": 84,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75155,
+              "status": "passed"
+            },
+            "line": 85,
+            "name": "param groupId \u003d groupId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "groupId",
+                  "offset": 6
+                },
+                {
+                  "val": "groupId",
+                  "offset": 16
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 19981299,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "param start \u003d 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "start",
+                  "offset": 6
+                },
+                {
+                  "val": "0",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16868044,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "param end \u003d 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "end",
+                  "offset": 6
+                },
+                {
+                  "val": "2",
+                  "offset": 12
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 208680450,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 88,
+              "value": "03:20:40.915 DEBUG - \n2 \u003e GET http://localhost:8080/api/jsonws/game.character/get-characters?groupId\u003d20143\u0026start\u003d0\u0026end\u003d2\n2 \u003e Accept-Encoding: gzip,deflate\n2 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n2 \u003e Connection: Keep-Alive\n2 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dCBF5B1A99B2F22B1AB8B4F5704C14797\n2 \u003e Host: localhost:8080\n2 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:41.121 DEBUG - \n2 \u003c 200\n2 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n2 \u003c Content-Length: 572\n2 \u003c Content-Type: application/json;charset\u003dUTF-8\n2 \u003c Date: Fri, 27 Oct 2017 03:20:40 GMT\n2 \u003c Server: Apache-Coyote/1.1\n2 \u003c X-Content-Type-Options: nosniff\n2 \u003c X-Frame-Options: SAMEORIGIN\n2 \u003c X-XSS-Protection: 1\n[{\"characterId\":\"27704\",\"companyId\":\"20116\",\"createDate\":1509074365444,\"groupId\":\"20143\",\"modifiedDate\":1509074365444,\"name\":\"Daenerys Targaryen\",\"status\":\"ALIVE\",\"url\":\"\\/o\\/game-web\\/images\\/got\\/daenerystargaryen.png\",\"userId\":\"20120\",\"userName\":\"\",\"uuid\":\"a39f5dfd-b98d-6a37-e4c1-64f447b0969e\"},{\"characterId\":\"27706\",\"companyId\":\"20116\",\"createDate\":1509074365628,\"groupId\":\"20143\",\"modifiedDate\":1509074365628,\"name\":\"Hodor\",\"status\":\"ALIVE\",\"url\":\"\\/o\\/game-web\\/images\\/got\\/hodor.png\",\"userId\":\"20120\",\"userName\":\"\",\"uuid\":\"ffb7ee35-7184-fd90-0e19-70e3d5e36ce7\"}]\n\n03:20:41.121 DEBUG - response time in milliseconds: 207\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 103832,
+              "status": "passed"
+            },
+            "line": 89,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 24332612,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "match response \u003d\u003d \u0027#[_ \u003e 0]\u0027",
+            "match": {
+              "arguments": [
+                {},
+                {
+                  "val": "response",
+                  "offset": 6
+                },
+                {},
+                {
+                  "val": "\u003d\u003d",
+                  "offset": 15
+                },
+                {
+                  "val": "\u0027#[_ \u003e 0]\u0027",
+                  "offset": 18
+                }
+              ],
+              "location": "StepDefs.matchEquals(String,String,String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 192445,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 92,
+                "value": "# Cleanup"
+              }
+            ],
+            "line": 94,
+            "name": "url characterURL",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterURL",
+                  "offset": 4
+                }
+              ],
+              "location": "StepDefs.url(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4263298,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "path \u0027delete-character\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027delete-character\u0027",
+                  "offset": 5
+                }
+              ],
+              "location": "StepDefs.path(String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 61545,
+              "status": "passed"
+            },
+            "line": 96,
+            "name": "header Authorization \u003d authHeaderValue",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Authorization",
+                  "offset": 7
+                },
+                {
+                  "val": "authHeaderValue",
+                  "offset": 23
+                }
+              ],
+              "location": "StepDefs.header(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 51405,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "param characterId \u003d characterId",
+            "match": {
+              "arguments": [
+                {
+                  "val": "characterId",
+                  "offset": 6
+                },
+                {
+                  "val": "characterId",
+                  "offset": 20
+                }
+              ],
+              "location": "StepDefs.param(String,String\u003e)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 206595834,
+              "status": "passed"
+            },
+            "line": 98,
+            "name": "method get",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.method(String)"
+            },
+            "keyword": "When ",
+            "doc_string": {
+              "content_type": "",
+              "line": 98,
+              "value": "03:20:41.156 DEBUG - \n3 \u003e GET http://localhost:8080/api/jsonws/game.character/delete-character?characterId\u003d27808\n3 \u003e Accept-Encoding: gzip,deflate\n3 \u003e Authorization: Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0\n3 \u003e Connection: Keep-Alive\n3 \u003e Cookie: GUEST_LANGUAGE_ID\u003den_US; JSESSIONID\u003dCBF5B1A99B2F22B1AB8B4F5704C14797\n3 \u003e Host: localhost:8080\n3 \u003e User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_144)\n\n03:20:41.357 DEBUG - \n3 \u003c 200\n3 \u003c Cache-Control: private, no-cache, no-store, must-revalidate\n3 \u003c Content-Length: 317\n3 \u003c Content-Type: application/json;charset\u003dUTF-8\n3 \u003c Date: Fri, 27 Oct 2017 03:20:40 GMT\n3 \u003c Server: Apache-Coyote/1.1\n3 \u003c X-Content-Type-Options: nosniff\n3 \u003c X-Frame-Options: SAMEORIGIN\n3 \u003c X-XSS-Protection: 1\n{\"characterId\":\"27808\",\"companyId\":\"20116\",\"createDate\":1509074440841,\"groupId\":\"20143\",\"modifiedDate\":1509074440841,\"name\":\"Robb Stark\",\"status\":\"ALIVE\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/File:Robb_Stark-Richard_Madden.jpg\",\"userId\":\"20156\",\"userName\":\"Test Test\",\"uuid\":\"6ebb0b12-9f50-f6d8-bc98-cb7aa7db7a02\"}\n\n03:20:41.361 DEBUG - response time in milliseconds: 206\n"
+            }
+          },
+          {
+            "result": {
+              "duration": 84492,
+              "status": "passed"
+            },
+            "line": 99,
+            "name": "status 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefs.status(int)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "",
+    "description": "Getting Characters",
+    "id": "getting-characters",
+    "keyword": "Feature",
+    "uri": ""
+  }
+]

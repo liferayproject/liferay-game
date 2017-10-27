@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CharacterLocalServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">liferay-game</a> &gt; <a href="index.source.html" class="el_package">com.liferay.game.service.impl</a> &gt; <span class="el_source">CharacterLocalServiceImpl.java</span></div><h1>CharacterLocalServiceImpl.java</h1><pre class="source lang-java linenums">/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.game.service.impl;
+
+import aQute.bnd.annotation.component.Component;
+
+import com.liferay.game.model.Character;
+import com.liferay.game.model.CharacterStatus;
+import com.liferay.game.service.base.CharacterLocalServiceBaseImpl;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.search.Indexable;
+import com.liferay.portal.kernel.search.IndexableType;
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * The implementation of the character local service.
+ *
+ * &lt;p&gt;
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.liferay.game.service.CharacterLocalService} interface.
+ *
+ * &lt;p&gt;
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * &lt;/p&gt;
+ *
+ * @author Brian Wing Shun Chan
+ * @see CharacterLocalServiceBaseImpl
+ * @see com.liferay.game.service.CharacterLocalServiceUtil
+ */
+@Component
+<span class="fc" id="L46">public class CharacterLocalServiceImpl extends CharacterLocalServiceBaseImpl {</span>
+
+	@Indexable(type = IndexableType.REINDEX)
+	@Override
+	public Character addCharacter(
+			long userId, long groupId, String name, String url,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+<span class="fc" id="L55">		User user = userLocalService.getUserById(userId);</span>
+<span class="fc" id="L56">		Date now = new Date();</span>
+
+<span class="fc" id="L58">		long characterId = counterLocalService.increment();</span>
+
+<span class="fc" id="L60">		Character character = characterPersistence.create(characterId);</span>
+
+<span class="fc" id="L62">		character.setUuid(serviceContext.getUuid());</span>
+<span class="fc" id="L63">		character.setGroupId(groupId);</span>
+<span class="fc" id="L64">		character.setCompanyId(user.getCompanyId());</span>
+<span class="fc" id="L65">		character.setUserId(user.getUserId());</span>
+<span class="fc" id="L66">		character.setUserName(user.getFullName());</span>
+<span class="fc" id="L67">		character.setCreateDate(now);</span>
+<span class="fc" id="L68">		character.setModifiedDate(now);</span>
+<span class="fc" id="L69">		character.setName(name);</span>
+<span class="fc" id="L70">		character.setUrl(url);</span>
+<span class="fc" id="L71">		character.setStatus(CharacterStatus.ALIVE.toString());</span>
+
+<span class="fc" id="L73">		characterPersistence.update(character);</span>
+
+<span class="fc" id="L75">		return character;</span>
+	}
+
+	@Indexable(type = IndexableType.DELETE)
+	@Override
+	public Character deleteCharacter(long characterId) throws PortalException {
+<span class="fc" id="L81">		Character character = characterPersistence.findByPrimaryKey(</span>
+			characterId);
+
+<span class="fc" id="L84">		characterPersistence.remove(character);</span>
+
+<span class="fc" id="L86">		return character;</span>
+	}
+
+	@Indexable(type = IndexableType.DELETE)
+	@Override
+	public void deleteCharacters(long groupId) throws PortalException {
+		for (Character character :
+<span class="nc bnc" id="L93" title="All 2 branches missed.">				characterPersistence.findByGroupId(groupId)) {</span>
+
+<span class="nc" id="L95">			characterLocalService.deleteCharacter(character);</span>
+<span class="nc" id="L96">		}</span>
+<span class="nc" id="L97">	}</span>
+
+	@Override
+	public Character getCharacter(long characterId) throws PortalException {
+<span class="fc" id="L101">		return characterPersistence.findByPrimaryKey(characterId);</span>
+	}
+
+	@Override
+	public List&lt;Character&gt; getCharacters(long groupId, int start, int end) {
+<span class="fc" id="L106">		return characterPersistence.findByGroupId(groupId, start, end);</span>
+	}
+
+	@Override
+	public List&lt;Character&gt; getCharactersByGroupIdAndName(
+		long groupId, String name, int start, int end) {
+
+<span class="nc" id="L113">		return characterPersistence.findByG_N(groupId, name, start, end);</span>
+	}
+
+	@Override
+	public int getCharactersByGroupIdAndNameCount(long groupId, String name) {
+<span class="nc" id="L118">		return characterPersistence.countByG_N(groupId, name);</span>
+	}
+
+	@Override
+	public int getCharactersCount(long groupId) {
+<span class="fc" id="L123">		return characterPersistence.countByGroupId(groupId);</span>
+	}
+
+	@Indexable(type = IndexableType.REINDEX)
+	@Override
+	public Character killCharacter(long characterId) throws PortalException {
+<span class="fc" id="L129">		Character character = characterPersistence.findByPrimaryKey(</span>
+			characterId);
+
+<span class="fc" id="L132">		character.setStatus(CharacterStatus.DEAD.toString());</span>
+
+<span class="fc" id="L134">		characterPersistence.update(character);</span>
+
+<span class="fc" id="L136">		return character;</span>
+	}
+
+	@Override
+	public Character reviveCharacter(long characterId) throws PortalException {
+<span class="nc" id="L141">		Character character = characterPersistence.findByPrimaryKey(</span>
+			characterId);
+
+<span class="nc" id="L144">		character.setStatus(CharacterStatus.ALIVE.toString());</span>
+
+<span class="nc" id="L146">		characterPersistence.update(character);</span>
+
+<span class="nc" id="L148">		return character;</span>
+	}
+
+	@Override
+	public Character updateCharacter(long characterId, String name, String url)
+		throws PortalException {
+
+<span class="fc" id="L155">		Character character = characterPersistence.findByPrimaryKey(</span>
+			characterId);
+
+<span class="fc" id="L158">		character.setModifiedDate(new Date());</span>
+<span class="fc" id="L159">		character.setName(name);</span>
+<span class="fc" id="L160">		character.setUrl(url);</span>
+
+<span class="fc" id="L162">		characterPersistence.update(character);</span>
+
+<span class="fc" id="L164">		return character;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>
